@@ -1,5 +1,7 @@
+nosex=0
+nosey=0
 function preload(){
-
+    clownnose=loadImage("https://i.postimg.cc/PxFvYgkv/l1.png")
 }
 function setup(){
     canvas=createCanvas(300,300)
@@ -15,6 +17,10 @@ function modelloaded(){
 }
 function draw(){
 image (video,0,0,300,300)
+fill(255,0,0)
+stroke(255,0,0)
+//circle(nosex,nosey,20)
+image (clownnose,nosex-15,nosey+14,40,28)
 }
 function take_snapshot(){
     save("prachi.png")
@@ -23,7 +29,9 @@ function take_snapshot(){
 function gotposes(results){
 if(results.length>0){
     console.log(results)
-    console.log("nosex= "+results[0].pose.nose.x)
-    console.log("nosey= "+results[0].pose.nose.y)
+    nosex=results[0].pose.nose.x
+    nosey=results[0].pose.nose.y
+    console.log("nosex= "+nosex)
+    console.log("nosey= "+nosey)
 }
 }
